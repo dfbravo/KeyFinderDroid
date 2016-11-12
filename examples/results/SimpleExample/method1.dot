@@ -1,0 +1,50 @@
+strict digraph {
+compound=true subgraph cluster_0 {
+c0_n0 [label="specialinvoke $r2.<javax.crypto.spec.SecretKeySpec: void <init>(byte[],java.lang.String)>($r4, \"AES\")"];
+c0_n1 [label="$r4 = virtualinvoke $r3.<java.lang.String: byte[] getBytes()>()"];
+c0_n2 [label="$r3 = \"thisisthekey1\""];
+c0_n3 [label="$r3 = virtualinvoke $r0.<dfbravo.example.simpleexample.MainActivity: java.lang.String generateKey()>()"];
+label="<dfbravo.example.simpleexample.MainActivity: void onCreate(android.os.Bundle)>";
+head_node_0[shape=point,style=invis,constraint=false];
+tail_node_0[shape=point,style=invis,constraint=false];
+head_node_0 -> c0_n0 [style=invis];
+head_node_0 -> c0_n0 [style=invis];
+c0_n0 -> c0_n1 [label="$r4"];
+c0_n1 -> c0_n2 [label="$r3"];
+c0_n2 -> tail_node_0 [style=invis];
+c0_n0 -> c0_n1 [label="$r4"];
+c0_n1 -> c0_n3 [label="$r3"];
+c0_n3 -> tail_node_0 [style=invis];
+}
+c0_n0 -> head_node_2 [lhead=cluster_2];
+c0_n1 -> head_node_3 [lhead=cluster_3];
+c0_n0 -> head_node_2 [lhead=cluster_2];
+compound=true subgraph cluster_1 {
+label="<javax.crypto.spec.SecretKeySpec: void <init>(byte[],java.lang.String)>";
+head_node_1[shape=point,style=invis,constraint=false];
+tail_node_1[shape=point,style=invis,constraint=false];
+}
+tail_node_1 -> head_node_0 [label="PARAMS=[0]",ltail=cluster_1,lhead=cluster_0];
+compound=true subgraph cluster_2 {
+label="<java.lang.String: byte[] getBytes()>";
+head_node_2[shape=point,style=invis,constraint=false];
+tail_node_2[shape=point,style=invis,constraint=false];
+}
+compound=true subgraph cluster_3 {
+c3_n0 [label="return $r1"];
+c3_n1 [label="$r1 = virtualinvoke $r1.<java.lang.String: java.lang.String toString()>()"];
+c3_n2 [label="$r1 = \"thisisthekey2\""];
+label="<dfbravo.example.simpleexample.MainActivity: java.lang.String generateKey()>";
+head_node_3[shape=point,style=invis,constraint=false];
+tail_node_3[shape=point,style=invis,constraint=false];
+head_node_3 -> c3_n0 [style=invis];
+c3_n0 -> c3_n1 [label="$r1"];
+c3_n1 -> c3_n2 [label="$r1"];
+c3_n2 -> tail_node_3 [style=invis];
+}
+compound=true subgraph cluster_2 {
+label="<java.lang.String: byte[] getBytes()>";
+head_node_2[shape=point,style=invis,constraint=false];
+tail_node_2[shape=point,style=invis,constraint=false];
+}
+}

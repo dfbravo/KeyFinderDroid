@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "kfd.Main"
+
+repositories {
+    mavenCentral()
+}
+
+def flowdroid_src = "./libs"
+
+dependencies {
+    compile files(flowdroid_src + "/axml-2.0.jar")
+    compile files(flowdroid_src + "/slf4j-api-1.7.5.jar")
+    compile files(flowdroid_src + "/slf4j-simple-1.7.5.jar")
+    compile files(flowdroid_src + "/soot-infoflow-android.jar")
+    compile files(flowdroid_src + "/soot-infoflow.jar")
+    compile files(flowdroid_src + "/soot-trunk.jar")
+
+    // https://mvnrepository.com/artifact/commons-cli/commons-cli
+    compile group: 'commons-cli', name: 'commons-cli', version: '1.3.1'
+}
+
+run {
+    if (project.hasProperty("appArgs")) {
+        args appArgs.split(" ")
+    }
+    //jvmArgs "-Xmx12g"
+    systemProperty "org.slf4j.simpleLogger.defaultLogLevel", System.getProperty("org.slf4j.simpleLogger.defaultLogLevel")
+}

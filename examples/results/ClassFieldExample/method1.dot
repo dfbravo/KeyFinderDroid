@@ -1,0 +1,28 @@
+strict digraph {
+compound=true subgraph cluster_0 {
+c0_n0 [label="specialinvoke $r2.<javax.crypto.spec.SecretKeySpec: void <init>(byte[],java.lang.String)>($r3, \"AES\")"];
+c0_n1 [label="$r3 = virtualinvoke $r4.<java.lang.String: byte[] getBytes()>()"];
+c0_n2 [label="$r4 = <dfbravo.example.classfieldexample.KeyInfo: java.lang.String key>"];
+c0_n3 [label="<dfbravo.example.classfieldexample.KeyInfo: java.lang.String key> = \"thisisthekey\""];
+label="<dfbravo.example.classfieldexample.MainActivity: void onCreate(android.os.Bundle)>";
+head_node_0[shape=point,style=invis,constraint=false];
+tail_node_0[shape=point,style=invis,constraint=false];
+head_node_0 -> c0_n0 [style=invis];
+c0_n0 -> c0_n1 [label="$r3"];
+c0_n1 -> c0_n2 [label="$r4"];
+c0_n2 -> c0_n3 [label="<dfbravo.example.classfieldexample.KeyInfo: java.lang.String key>"];
+c0_n3 -> tail_node_0 [style=invis];
+}
+c0_n0 -> head_node_2 [lhead=cluster_2];
+compound=true subgraph cluster_1 {
+label="<javax.crypto.spec.SecretKeySpec: void <init>(byte[],java.lang.String)>";
+head_node_1[shape=point,style=invis,constraint=false];
+tail_node_1[shape=point,style=invis,constraint=false];
+}
+tail_node_1 -> head_node_0 [label="PARAMS=[0]",ltail=cluster_1,lhead=cluster_0];
+compound=true subgraph cluster_2 {
+label="<java.lang.String: byte[] getBytes()>";
+head_node_2[shape=point,style=invis,constraint=false];
+tail_node_2[shape=point,style=invis,constraint=false];
+}
+}
