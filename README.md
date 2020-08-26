@@ -1,6 +1,8 @@
 KeyFinderDroid
 ===========
-This tool helps find hard-coded data that is used to create encryption keys. It uses the static analysis framework Soot and the extensions created for Flowdroid. It looks for specified constructors of secret key objects and attempts to the data that was used as the key information.
+This tool helps find hard-coded data that is used to create encryption keys. It uses the static analysis framework Soot and the extensions created for Flowdroid. It looks for specified constructors of secret key objects and attempts to track the data that was used as the key information.
+
+Check out the wiki for details on how it works!
 
 Dependencies
 ============
